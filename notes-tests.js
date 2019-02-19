@@ -5,10 +5,15 @@ function testNoteTextContainsString() {
   assert.isTrue(note.getNote() === "Javascript is my favourite language");
 };
 
-function testNoteListContainsNoteObjects() {
-  var list = new NoteList();
-  list.addNote("going shopping")
-  expect(list).toContain("going shopping")
-};
-
+(function(exports) {
+  function testNoteListContainsNote() {
+    var noteList = new NoteList();
+    noteList.addNote("going shopping");
+    if (noteList.list.includes("going shopping") === false) {
+      throw new Error("Note not stored in Note List");
+    }
+  };
+  exports.testNoteListContainsNote = testNoteListContainsNote;
+})(this);
+testNoteListContainsNote();
 testNoteTextContainsString();
