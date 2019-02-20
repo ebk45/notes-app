@@ -11,5 +11,14 @@ function testNoteListContainsNote() {
   assert.isTrue(noteList.showList()[0].getNote().includes("going shopping"))
 };
 
+function testNoteListViewShowsNotes() {
+  var noteList = new NoteList();
+  noteList.addNote("Favourite Drink: Vodka");
+  noteList.addNote("Favourite Food: Vodka");
+  var noteListView = new NoteListView(noteList);
+  assert.isTrue(noteListView.viewList() === "<ul><li><div>Favourite Drink: Vodka</div></li><li><div>Favourite Food: Vodka</div></li></ul>")
+}
+
 testNoteListContainsNote();
 testNoteTextContainsString();
+testNoteListViewShowsNotes();
