@@ -9,7 +9,7 @@ function testNoteTextContainsString() {
   function testNoteListContainsNote() {
     var noteList = new NoteList();
     noteList.addNote("going shopping");
-    if (noteList.list.includes("going shopping") === false) {
+    if (noteList.showList()[0].getNote().includes("going shopping") === false) {
       throw new Error("Note not stored in Note List");
     }
   };
