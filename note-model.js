@@ -11,6 +11,3 @@
 
   exports.Note = Note;
 })(this);
-
-var note = new Note("hello");
-console.log(note.getNote())
